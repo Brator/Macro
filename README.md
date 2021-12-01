@@ -1,2 +1,2 @@
 # Macro
-foundry macro pf1
+foundry macros pf1
