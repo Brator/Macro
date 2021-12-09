@@ -1,11 +1,11 @@
-//// New Health is going to be grater the max health
-  ////// If so, we want the new health to max 
+//// guérison accelèrée
+  ////// avec check si max. est atteint
 main()
 
 async function main(){
   let newHealth = actor.data.data.attributes.hp.temp + 1
   
-    //If token is max health if so, don't do anything
+    //Si le token à déjà autant de pv temp, la guérison ne fonctionne pas
   if(actor.data.data.attributes.hp.temp == 116){
     ui.notifications.error(`${actor.data.name} a déjà le max de pv temporaire`);
     return;
