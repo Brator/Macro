@@ -11,13 +11,13 @@ async function main(){
     return;
   }
 
-  //update the actor health
+  //met à jour la sanét du pion
   await actor.update({"data.attributes.hp.temp": newHealth});
   ui.notifications.info(`${actor.data.name} guérit 1 pts de vie temporaire`)
-
+//créée une alerte avec le nom du pion
 let controlledToken = canvas.tokens.controlled[0];
 const content = `<p>${controlledToken.name} guérit de 1 pv temporaire</p>`;
-
+//créée un message dans le chat avec le nom du pion
 ChatMessage.create({
   speaker: ChatMessage.getSpeaker(controlledToken),
   content: content,
