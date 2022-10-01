@@ -1,5 +1,5 @@
 const TORCH_ICON = 'icons/sundries/lights/torch-brown-lit.webp'
-const torchAnimation = {
+const flame= {
     "intensity": 1,
     "speed": 1,
     "type": "torch"
@@ -8,15 +8,15 @@ const torchAnimation = {
 const mundaneLight = {
     "alpha": 0.1,
     "angle": 360,
-    "animation": torchAnimation,
+    "animation": {"type": "flame"},
     "color": "#d98e26",
     "luminosity": 0.5
 }
 
 const magicLight = {
-    "alpha": 0.1,
+    "alpha": 0.3,
     "angle": 360,
-    "animation": {"type": "none"},
+    "animation": {"type": "wave"},
     "color": "#a6bbdd",
     "luminosity": 0.5
 }
@@ -32,7 +32,7 @@ async function tokenUpdate(lightData) {
       }
   })
   await canvas.scene.updateEmbeddedDocuments('Token', tokens)
-  const turnedOn = lightData?.animation?.type === 'torch'
+  const turnedOn = lightData?.animation?.type === 'flame'
   const turnedOff = !turnedOn && token.data.effects.includes(TORCH_ICON)
   for (const token of canvas.tokens.controlled) {
     if (turnedOn || turnedOff)
@@ -134,3 +134,28 @@ let dialogEditor = new Dialog({
 }, dialogOptions)
 
 dialogEditor.render(true)
+
+/*
+les types d'animations de lumière:
+chroma
+dome
+emanation
+energy
+fairy
+flame
+fog
+ghost
+hexa
+hole
+pulse
+radialrainbow
+rainbowswirl
+roiling
+smokepatch
+starlight
+sunburst
+torch
+vortex
+wave
+witchwave
+*/
