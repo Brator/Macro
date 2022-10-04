@@ -16,7 +16,7 @@ const mundaneLight = {
 const magicLight = {
     "alpha": 0.3,
     "angle": 360,
-    "animation": {"type": "wave"},
+    "animation": {"type": "vortex"},
     "color": "#a6bbdd",
     "luminosity": 0.5
 }
