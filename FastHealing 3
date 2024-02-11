@@ -1,0 +1,17 @@
+//// guérison accelèrée
+main()
+
+async function main()
+{
+    let fh = actor.data.data.traits.fastHealing + 3
+    let fh0 = actor.data.data.traits.fastHealing - 3
+    if (actor.data.data.traits.fastHealing == 3){
+        ui.notifications.error(`${actor.data.name} a déjà un guérison accélérée`);
+        await actor.update({"data.traits.fastHealing": fh0});
+        return;
+          
+      }
+      
+      await actor.update({"data.traits.fastHealing": fh});
+    
+}
