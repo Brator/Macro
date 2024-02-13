@@ -1,0 +1,20 @@
+let actor = token.actor
+
+if(actor === undefined) {
+console.log("Token non trouvé")
+return
+}
+
+let currentFh = actor.system.traits.fastHealing
+
+let fhLevelFromBuffBase = actor.items.filter(b => b.name === "Guérison accélérée base")[0]
+let fhBase = fhLevelFromBuffBase.system.level
+
+let fhLevelFromBuff = actor.items.filter(b => b.name === "Guérison accélérée")[0]
+let newFhValue = fhLevelFromBuff.system.level
+
+if(currentFh === newFhValue) {
+newFhValue = fhBase
+}
+
+await actor.update({"system.traits.fastHealing":newFhValue})
